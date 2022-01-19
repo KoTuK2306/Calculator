@@ -1,10 +1,52 @@
 @font-face {
-    font-family: "MulishItalic";
-    src: url("./fonts/MulishItalic.ttf");
+  font-family: "MulishItalic";
+  src: url("./fonts/MulishItalic.ttf");
+}
+
+:root {
+  --coll: 4; /* number of columns with buttons */
+  --row: 6; /* number of rows with buttons */
+  --resultHeight: 140px; /* height of calculator result */
+  --primaryRed: #ff0000;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "MulishItalic";
+  margin: 0;
+  padding: 0;
+  font-family: "MulishItalic";
+}
+
+.title {
+  text-align: center;
+}
+
+.calculator {
+  background-color: var(--primaryRed);
+  width: 370px;
+  height: 500px;
+  margin: auto;
+}
+
+.result {
+  width: 100%;
+  height: var(--resultHeight);
+  background-color: var(--primaryRed);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: calc(100% - var(--resultHeight));
+}
+
+.button {
+  margin: 0;
+  padding: 0;
+  height: calc(100% / var(--row));
+  width: calc(100% / var(--coll));
+  font-family: inherit;
+  font-size: 20px;
+  font-style: normal;
 }
