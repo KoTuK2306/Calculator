@@ -6,7 +6,8 @@
 :root {
   --coll: 4; /* number of columns with buttons */
   --row: 6; /* number of rows with buttons */
-  --result_height: 140px; /* height in px of calculator result */
+  --resultHeight: 140px; /* height of calculator result */
+  --primaryRed: #ff0000;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
 }
 
 .calculator {
-  background-color: #ff0000;
+  background-color: var(--primaryRed);
   width: 370px;
   height: 500px;
   margin: auto;
@@ -28,8 +29,8 @@ body {
 
 .result {
   width: 100%;
-  height: var(--result_height);
-  background-color: #000000;
+  height: var(--resultHeight);
+  background-color: var(--primaryRed);
 }
 
 .buttons {
@@ -37,7 +38,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  height: calc(100% - var(--result_height));
+  height: calc(100% - var(--resultHeight));
 }
 
 .button {
@@ -45,4 +46,7 @@ body {
   padding: 0;
   height: calc(100% / var(--row));
   width: calc(100% / var(--coll));
+  font-family: inherit;
+  font-size: 20px;
+  font-style: normal;
 }
