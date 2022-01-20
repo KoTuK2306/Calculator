@@ -1,16 +1,15 @@
+@import url("colors.css");
+
 @font-face {
   font-family: "MulishItalic";
   src: url("./fonts/MulishItalic.ttf");
-}
-
-:root {
-  --primaryRed: #ff0000;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: "MulishItalic";
+  color: var(--secondaryColor);
 }
 
 .title {
@@ -20,7 +19,7 @@ body {
 .calculator {
   display: grid;
   grid-template-rows: 140px auto;
-  background-color: var(--primaryRed);
+  background-color: var(--primaryColor);
   width: 370px;
   height: 500px;
   margin: auto;
@@ -28,7 +27,7 @@ body {
 
 .result {
   align-content: start;
-  background-color: var(--primaryRed);
+  background-color: var(--primaryColor);
 }
 
 .buttons {
@@ -42,4 +41,32 @@ body {
   padding: 0;
   font-family: inherit;
   font-size: 20px;
+  font-weight: bold;
+  color: inherit;
+  border-radius: 0;
+  border: 0;
+  border-left: 1px solid var(--secondaryColor);
+  border-top: 1px solid var(--secondaryColor);
+  cursor: pointer;
+}
+
+.button:nth-child(4n) {
+  border-right: 1px solid var(--secondaryColor);
+  background-color: var(--operButtonsColor);
+}
+
+.button:nth-child(n + 21) {
+  border-bottom: 1px solid var(--secondaryColor);
+}
+
+.button:nth-child(24) {
+  background-color: var(--resultButtonColor);
+}
+
+.button:nth-child(-n + 8) {
+  background-color: var(--operButtonsColor);
+}
+
+.button:hover {
+  background-color: var(--hoverColor);
 }
