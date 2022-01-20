@@ -4,9 +4,6 @@
 }
 
 :root {
-  --coll: 4; /* number of columns with buttons */
-  --row: 6; /* number of rows with buttons */
-  --resultHeight: 140px; /* height of calculator result */
   --primaryRed: #ff0000;
 }
 
@@ -21,6 +18,8 @@ body {
 }
 
 .calculator {
+  display: grid;
+  grid-template-rows: 140px auto;
   background-color: var(--primaryRed);
   width: 370px;
   height: 500px;
@@ -28,25 +27,19 @@ body {
 }
 
 .result {
-  width: 100%;
-  height: var(--resultHeight);
+  align-content: start;
   background-color: var(--primaryRed);
 }
 
 .buttons {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  height: calc(100% - var(--resultHeight));
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(6, auto);
 }
 
 .button {
   margin: 0;
   padding: 0;
-  height: calc(100% / var(--row));
-  width: calc(100% / var(--coll));
   font-family: inherit;
   font-size: 20px;
-  font-style: normal;
 }
