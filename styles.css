@@ -54,11 +54,11 @@ body {
   background-color: var(--operationButtonsColor);
 }
 
-.rightBorder {
+.border_right {
   border-right: 1px solid var(--secondaryColor);
 }
 
-.bottomBorder {
+.border_bottom {
   border-bottom: 1px solid var(--secondaryColor);
 }
 

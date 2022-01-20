@@ -1,7 +1,7 @@
 :root {
-  --primaryColor: rgba(136, 136, 136, 0.314);
+  --primaryColor: rgba(136, 136, 136, 0.3);
   --secondaryColor: #262626;
-  --operationButtonsColor: rgba(54, 78, 113, 0.337);
-  --resultButtonColor: rgba(54, 78, 113, 0.698);
-  --hoverColor: rgba(179, 97, 255, 0.412);
+  --operationButtonsColor: rgba(54, 78, 113, 0.3);
+  --resultButtonColor: rgba(54, 78, 113, 0.7);
+  --hoverColor: rgba(157, 58, 250, 0.4);
 }
