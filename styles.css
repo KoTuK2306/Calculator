@@ -25,7 +25,7 @@ body {
   margin: auto;
 }
 
-.result {
+.resultWindow {
   align-content: start;
   background-color: var(--primaryColor);
 }
