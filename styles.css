@@ -39,27 +39,22 @@ body {
 .button {
   margin: 0;
   padding: 0;
-  font-family: inherit;
+  font-family: "MulishItalic";
   font-size: 20px;
   font-weight: bold;
-  color: inherit;
-  border-radius: 0;
-  border: 0;
-  border-left: 1px solid var(--secondaryColor);
-  border-top: 1px solid var(--secondaryColor);
+  color: var(--secondaryColor);
+
   cursor: pointer;
+}
+
+.buttons > .button {
+  border: 1px solid var(--secondaryColor);
+  margin: 0 -1px -1px 0;
 }
 
 .operation {
   background-color: var(--operationButtonsColor);
-}
-
-.border_right {
-  border-right: 1px solid var(--secondaryColor);
-}
-
-.border_bottom {
-  border-bottom: 1px solid var(--secondaryColor);
+  border: none;
 }
 
 .button:last-child {
