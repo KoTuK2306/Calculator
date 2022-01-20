@@ -50,21 +50,20 @@ body {
   cursor: pointer;
 }
 
-.button:nth-child(4n) {
-  border-right: 1px solid var(--secondaryColor);
-  background-color: var(--operButtonsColor);
+.operation {
+  background-color: var(--operationButtonsColor);
 }
 
-.button:nth-child(n + 21) {
+.rightBorder {
+  border-right: 1px solid var(--secondaryColor);
+}
+
+.bottomBorder {
   border-bottom: 1px solid var(--secondaryColor);
 }
 
-.button:nth-child(24) {
+.button:last-child {
   background-color: var(--resultButtonColor);
-}
-
-.button:nth-child(-n + 8) {
-  background-color: var(--operButtonsColor);
 }
 
 .button:hover {
