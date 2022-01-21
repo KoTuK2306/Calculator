@@ -1,12 +1,12 @@
-const buttons = document.getElementsByClassName("buttonsBlock");
-const result = document.getElementsByTagName("p");
+const [buttonsContainer] = document.getElementsByClassName("buttonsBlock");
+const [result] = document.getElementsByClassName("result");
 
-buttonClick = (event) => {
+let buttonClick = (event) => {
   if (event.target.id === "clean") {
     result.innerHTML = 0;
     return;
   }
-  document.getElementById("result").innerHTML = event.target.innerHTML;
+  result.innerHTML = event.target.innerHTML;
 };
 
-buttons.addEventListener("click", buttonClick);
+buttonsContainer.addEventListener("click", buttonClick);
