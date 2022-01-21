@@ -3,7 +3,7 @@ const [result] = document.getElementsByClassName("result");
 let calculating = [];
 
 const buttonClick = (event) => {
-  if (event.target.id == "clean") {
+  if (event.target.id === "clean") {
     result.innerHTML = 0;
     calculating = [];
     return;
