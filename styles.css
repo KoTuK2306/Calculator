@@ -34,6 +34,7 @@ body {
 }
 
 .button {
+  position: relative;
   margin: 0;
   padding: 0;
   font-family: "MulishItalic";
@@ -43,7 +44,30 @@ body {
   border: none;
   border-right: 1px solid var(--secondaryColor);
   border-bottom: 1px solid var(--secondaryColor);
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
   cursor: pointer;
+}
+
+.button:after {
+  content: "";
+  background: var(--purple);
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -10px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
 }
 
 .operation {
@@ -55,5 +79,11 @@ body {
 }
 
 .button:hover {
-  background-color: var(--hoverColor);
+  background-color: var(--purple);
+}
+
+.result {
+  margin: 90px 10px 0 0;
+  text-align: end;
+  font-size: 35px;
 }
