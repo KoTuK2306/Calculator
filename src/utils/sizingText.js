@@ -1,4 +1,5 @@
-import { calculating, result } from "../variables.js";
+import { result } from "../constants.js";
+import { calculating } from "../../script.js";
 const sizingText = () => {
   if (calculating.length > 15 && calculating.length <= 38)
     result.style = "font-size: 15px";

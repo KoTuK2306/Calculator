@@ -1,16 +1,13 @@
-import {
-  operationButtons,
-  buttonsContainer,
-  result,
-  calculating,
-} from "./src/variables.js";
+import { operationButtons, buttonsContainer, result } from "./src/constants.js";
 import { sizingText } from "./src/utils/sizingText.js";
+
+export let calculating = [];
 
 const buttonClick = (event) => {
   switch (event.target.id) {
     case operationButtons.clean:
       result.innerHTML = 0;
-      calculating.length = 0;
+      calculating = [];
       break;
     case operationButtons.backspace:
       calculating.pop();
@@ -23,14 +20,14 @@ const buttonClick = (event) => {
     case operationButtons.square:
       const number = calculating.join("");
       result.innerHTML = Math.pow(number, 2);
-      calculating.length = 0;
+      calculating = [];
       break;
     case operationButtons.partOfAWhole:
       const denominator = calculating.join("");
       denominator == 0
         ? (result.innerHTML = operationButtons.uncertainty)
         : (result.innerHTML = 1 / denominator);
-      calculating.length = 0;
+      calculating = [];
       break;
     default:
       calculating.push(event.target.innerHTML);

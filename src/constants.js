@@ -10,6 +10,5 @@ Object.freeze(operationButtons);
 
 const [buttonsContainer] = document.getElementsByClassName("buttonsBlock");
 const [result] = document.getElementsByClassName("result");
-let calculating = [];
 
-export { operationButtons, buttonsContainer, result, calculating };
+export { operationButtons, buttonsContainer, result };
