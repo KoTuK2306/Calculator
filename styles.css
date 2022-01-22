@@ -1,4 +1,4 @@
-@import url("colors.css");
+@import url("./src/colors.css");
 
 @font-face {
   font-family: "MulishItalic";
@@ -86,4 +86,5 @@ body {
   margin: 90px 10px 0 0;
   text-align: end;
   font-size: 35px;
+  transition: all 0.4s;
 }
