@@ -15,6 +15,11 @@ const buttonClick = (event) => {
       }
       result.innerHTML = calculating.join("");
       break;
+    case "square":
+      let number = calculating.join("");
+      result.innerHTML = Math.pow(number, 2);
+      calculating = [];
+      break;
     default:
       calculating.push(event.target.innerHTML);
       result.innerHTML = calculating.join("");
