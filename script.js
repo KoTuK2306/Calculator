@@ -1,7 +1,7 @@
 import { operationButtons, buttonsContainer, result } from "./src/constants.js";
 import { sizingText } from "./src/utils/sizingText.js";
 
-export let calculating = [];
+let calculating = [];
 
 const buttonClick = (event) => {
   switch (event.target.id) {
@@ -33,7 +33,7 @@ const buttonClick = (event) => {
       calculating.push(event.target.innerHTML);
       result.innerHTML = calculating.join("");
   }
-  sizingText();
+  sizingText(calculating);
 };
 
 buttonsContainer.addEventListener("click", buttonClick);

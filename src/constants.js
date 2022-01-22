@@ -1,14 +1,11 @@
-const operationButtons = {
+export const operationButtons = Object.freeze({
   partOfAWhole: "partOfAWhole",
   square: "square",
   backspace: "backspace",
   clean: "clean",
   uncertainty: "Uncertainty",
-};
+});
 
-Object.freeze(operationButtons);
-
-const [buttonsContainer] = document.getElementsByClassName("buttonsBlock");
-const [result] = document.getElementsByClassName("result");
-
-export { operationButtons, buttonsContainer, result };
+export const [buttonsContainer] =
+  document.getElementsByClassName("buttonsBlock");
+export const [result] = document.getElementsByClassName("result");
