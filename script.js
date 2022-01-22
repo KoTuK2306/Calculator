@@ -1,4 +1,4 @@
-import { variables } from "./constants.js";
+import { operationButtons } from "./constants.js";
 
 const [buttonsContainer] = document.getElementsByClassName("buttonsBlock");
 const [result] = document.getElementsByClassName("result");
@@ -6,11 +6,11 @@ let calculating = [];
 
 const buttonClick = (event) => {
   switch (event.target.id) {
-    case variables.clean:
+    case operationButtons.clean:
       result.innerHTML = 0;
       calculating = [];
       break;
-    case variables.backspace:
+    case operationButtons.backspace:
       calculating.pop();
       if (calculating.length === 0) {
         result.innerHTML = 0;
@@ -18,15 +18,15 @@ const buttonClick = (event) => {
       }
       result.innerHTML = calculating.join("");
       break;
-    case variables.square:
+    case operationButtons.square:
       const number = calculating.join("");
       result.innerHTML = Math.pow(number, 2);
       calculating = [];
       break;
-    case variables.partOfAWhole:
+    case operationButtons.partOfAWhole:
       const denominator = calculating.join("");
       denominator == 0
-        ? (result.innerHTML = variables.uncertainty)
+        ? (result.innerHTML = operationButtons.uncertainty)
         : (result.innerHTML = 1 / denominator);
       calculating = [];
       break;
