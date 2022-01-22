@@ -49,9 +49,10 @@ body {
   overflow: hidden;
   cursor: pointer;
 }
+
 .button:after {
   content: "";
-  background: var(--buttonColor);
+  background: var(--purple);
   display: block;
   position: absolute;
   padding-top: 300%;
@@ -78,7 +79,7 @@ body {
 }
 
 .button:hover {
-  background-color: var(--buttonColor);
+  background-color: var(--purple);
 }
 
 .result {
