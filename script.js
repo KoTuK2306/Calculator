@@ -1,7 +1,6 @@
-import { operationButtons } from "./constants.js";
+import { operationButtons, buttonsContainer, result } from "./src/constants.js";
+import { sizingText } from "./src/utils/sizingText.js";
 
-const [buttonsContainer] = document.getElementsByClassName("buttonsBlock");
-const [result] = document.getElementsByClassName("result");
 let calculating = [];
 
 const buttonClick = (event) => {
@@ -34,6 +33,7 @@ const buttonClick = (event) => {
       calculating.push(event.target.innerHTML);
       result.innerHTML = calculating.join("");
   }
+  sizingText(calculating);
 };
 
 buttonsContainer.addEventListener("click", buttonClick);
