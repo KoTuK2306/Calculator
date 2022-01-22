@@ -20,7 +20,7 @@ body {
   display: grid;
   grid-template-rows: 140px auto;
   background-color: var(--primaryColor);
-  width: 370px;
+  max-width: 370px;
   height: 500px;
   margin: auto;
 }
