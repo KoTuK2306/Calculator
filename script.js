@@ -20,6 +20,11 @@ const buttonClick = (event) => {
       result.innerHTML = Math.pow(number, 2);
       calculating = [];
       break;
+    case "partOfAWhole":
+      let denominator = calculating.join("");
+      result.innerHTML = 1 / denominator;
+      calculating = [];
+      break;
     default:
       calculating.push(event.target.innerHTML);
       result.innerHTML = calculating.join("");
