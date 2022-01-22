@@ -1,4 +1,4 @@
-const constants = {
+const variables = {
   partOfAWhole: "partOfAWhole",
   square: "square",
   backspace: "backspace",
@@ -6,4 +6,6 @@ const constants = {
   uncertainty: "Uncertainty",
 };
 
-export { constants };
+Object.freeze(variables);
+
+export { variables };
