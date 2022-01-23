@@ -28,7 +28,6 @@ const buttonClick = (event) => {
       }
       result.innerHTML = number;
       calculating = [];
-
       break;
     case operationButtons.partOfAWhole:
       const denominator = calculating.join("");
@@ -42,6 +41,16 @@ const buttonClick = (event) => {
         return;
       }
       result.innerHTML = fraction;
+      calculating = [];
+      break;
+    case operationButtons.sqrt:
+      let sqrt = calculating.join("");
+      if (sqrt < 0) {
+        sqrt = Math.sqrt(Math.abs(sqrt));
+        result.innerHTML = sqrt.toFixed(5) + "i";
+        return;
+      }
+      result.innerHTML = Math.sqrt(calculating.join("")).toFixed(5);
       calculating = [];
       break;
     default:

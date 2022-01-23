@@ -4,6 +4,7 @@ export const operationButtons = Object.freeze({
   backspace: "backspace",
   clean: "clean",
   uncertainty: "Uncertainty",
+  sqrt: "sqrt",
 });
 
 export const [buttonsContainer] =
