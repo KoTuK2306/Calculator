@@ -1,14 +1,22 @@
 import { result } from "../constants.js";
 
+const numberOfDecimalPlaces = 7;
+
 export const sqrt = (num) => {
-  if (num < 0) {
-    result.innerHTML = "Error";
-  } else {
-    num = Math.sqrt(num);
-    if (Number.isInteger(num) === true) {
-      result.innerHTML = num;
-    } else if ((num - Math.trunc(num)).toString().length > 7) {
-      result.innerHTML = num.toFixed(7);
-    } else result.innerHTML = num;
+  const numSqrt = Math.sqrt(num);
+  switch (true) {
+    case num < 0:
+      result.innerHTML = "Error";
+      break;
+    case Number.isInteger(numSqrt):
+      result.innerHTML = numSqrt;
+    case !Number.isInteger(numSqrt):
+      (numSqrt - Math.trunc(numSqrt)).toString().length > numberOfDecimalPlaces
+        ? (result.innerHTML = numSqrt.toFixed(numberOfDecimalPlaces))
+        : (result.innerHTML = numSqrt);
+      break;
+    default:
+      result.innerHTML = numSqrt;
+      break;
   }
 };
