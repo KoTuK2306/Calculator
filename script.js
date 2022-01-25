@@ -45,14 +45,14 @@ const buttonClick = (event) => {
       calculating = [];
       break;
     case operationButtons.sqrt:
-      sqrt(calculating.join(""));
+      sqrt(calculating.join(""), result);
       calculating = [];
       break;
     default:
       calculating.push(event.target.innerHTML);
       result.innerHTML = calculating.join("");
   }
-  sizingText(calculating);
+  sizingText(calculating, result);
 };
 
 buttonsContainer.addEventListener("click", buttonClick);
