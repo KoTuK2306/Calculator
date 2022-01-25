@@ -1,19 +1,25 @@
 import { result } from "../constants.js";
 
-const numberOfDecimalPlaces = 7;
+const MAX_DECIMAL = 7;
+
+const roundNotInteger = (numSqrt) => {
+  let fractionLength = (numSqrt - Math.trunc(numSqrt)).toString().length;
+  if (fractionLength > MAX_DECIMAL) {
+    result.innerHTML = numSqrt.toFixed(MAX_DECIMAL);
+    return;
+  }
+  result.innerHTML = numSqrt;
+};
 
 export const sqrt = (num) => {
+  if (num < 0) {
+    result.innerHTML = "Error";
+    return;
+  }
   const numSqrt = Math.sqrt(num);
   switch (true) {
-    case num < 0:
-      result.innerHTML = "Error";
-      break;
-    case Number.isInteger(numSqrt):
-      result.innerHTML = numSqrt;
     case !Number.isInteger(numSqrt):
-      (numSqrt - Math.trunc(numSqrt)).toString().length > numberOfDecimalPlaces
-        ? (result.innerHTML = numSqrt.toFixed(numberOfDecimalPlaces))
-        : (result.innerHTML = numSqrt);
+      roundNotInteger(numSqrt);
       break;
     default:
       result.innerHTML = numSqrt;
