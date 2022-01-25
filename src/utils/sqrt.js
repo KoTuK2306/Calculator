@@ -1,26 +1,23 @@
 const MAX_DECIMAL = 7;
 
-const roundNotInteger = (numSqrt, result) => {
-  let fractionLength = (numSqrt - Math.trunc(numSqrt)).toString().length;
-  if (fractionLength > MAX_DECIMAL) {
-    result.innerHTML = numSqrt.toFixed(MAX_DECIMAL);
+const roundFloat = (num, result, maxDecimal = MAX_DECIMAL) => {
+  const fractionLength = (num - Math.trunc(num)).toString().length;
+  if (fractionLength > maxDecimal) {
+    result.innerHTML = num.toFixed(maxDecimal);
     return;
   }
-  result.innerHTML = numSqrt;
+  result.innerHTML = num;
 };
 
-export const sqrt = (num, result) => {
+export const sqrt = (num, result, maxDecimal) => {
   if (num < 0) {
     result.innerHTML = "Error";
     return;
   }
   const numSqrt = Math.sqrt(num);
-  switch (true) {
-    case !Number.isInteger(numSqrt):
-      roundNotInteger(numSqrt, result);
-      break;
-    default:
-      result.innerHTML = numSqrt;
-      break;
+  if (!Number.isInteger(numSqrt)) {
+    roundFloat(numSqrt, result, maxDecimal);
+    return;
   }
+  result.innerHTML = numSqrt;
 };
