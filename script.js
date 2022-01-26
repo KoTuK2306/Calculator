@@ -1,5 +1,6 @@
 import { operationButtons, buttonsContainer, result } from "./src/constants.js";
 import { sizingText } from "./src/utils/sizingText.js";
+import { sqrt } from "./src/utils/sqrt.js";
 
 let calculating = [];
 
@@ -28,7 +29,6 @@ const buttonClick = (event) => {
       }
       result.innerHTML = number;
       calculating = [];
-
       break;
     case operationButtons.partOfAWhole:
       const denominator = calculating.join("");
@@ -44,11 +44,15 @@ const buttonClick = (event) => {
       result.innerHTML = fraction;
       calculating = [];
       break;
+    case operationButtons.sqrt:
+      sqrt(calculating.join(""), result);
+      calculating = [];
+      break;
     default:
       calculating.push(event.target.innerHTML);
       result.innerHTML = calculating.join("");
   }
-  sizingText(calculating);
+  sizingText(calculating, result);
 };
 
 buttonsContainer.addEventListener("click", buttonClick);
