@@ -48,6 +48,26 @@ const buttonClick = (event) => {
       sqrt(calculating.join(""), result);
       calculating = [];
       break;
+    case operationButtons.countUp:
+      const operations = calculating.map((elem) => {
+        if (elem == "x") elem = "*";
+        else if (elem == "÷") elem = "/";
+        else if (elem == ",") elem = ".";
+        return elem;
+      });
+      result.innerHTML = eval(operations.join(""));
+      calculating = [];
+      result.innerHTML.split("").map((e) => {
+        calculating.push(e);
+      });
+      break;
+    case operationButtons.changeSign:
+      result.innerHTML = calculating.join("") * -1;
+      calculating = [];
+      result.innerHTML.split("").map((e) => {
+        calculating.push(e);
+      });
+      break;
     default:
       calculating.push(event.target.innerHTML);
       result.innerHTML = calculating.join("");

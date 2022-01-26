@@ -5,6 +5,8 @@ export const operationButtons = Object.freeze({
   clean: "clean",
   uncertainty: "Uncertainty",
   sqrt: "sqrt",
+  countUp: "countUp",
+  changeSign: "changeSign",
 });
 
 export const [buttonsContainer] =

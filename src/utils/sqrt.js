@@ -9,7 +9,6 @@ const roundFloat = (num, maxDecimal = MAX_DECIMAL) => {
 };
 
 export const sqrt = (num, result, maxDecimal) => {
-  console.log(num);
   if (num < 0) {
     result.innerHTML = "Error";
     return;
