@@ -15,7 +15,6 @@ export const sqrt = (num, result, maxDecimal) => {
     return;
   }
   const numSqrt = Math.sqrt(num);
-  console.log(numSqrt);
   if (!Number.isInteger(numSqrt)) {
     result.innerHTML = numSqrt;
   }
