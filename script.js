@@ -59,12 +59,26 @@ const buttonClick = (event) => {
       input.innerHTML = set;
       break;
     case operationButtons.divide:
+      if (
+        set.toString().slice(-1) === "+" ||
+        set.toString().slice(-1) === "-" ||
+        set.toString().slice(-1) === "*"
+      ) {
+        set = set.slice(0, -1);
+      }
       set += str + "/";
       input.innerHTML = set;
       str = "";
       result.innerHTML = 0;
       break;
     case operationButtons.multiple:
+      if (
+        set.toString().slice(-1) === "+" ||
+        set.toString().slice(-1) === "-" ||
+        set.toString().slice(-1) === "/"
+      ) {
+        set = set.slice(0, -1);
+      }
       set += str + "*";
       input.innerHTML = set;
       str = "";
@@ -92,14 +106,19 @@ const buttonClick = (event) => {
       break;
     case operationButtons.countUp:
       str = eval(set + str);
+      console.log(set);
       set = "";
       input.innerHTML = set;
       str = str.toString();
       result.innerHTML = str;
       break;
     default:
+      if (event.target === buttonsContainer) {
+        return;
+      }
       str += event.target.innerHTML;
       result.innerHTML = str;
+      break;
   }
   sizingText(str, result);
 };
