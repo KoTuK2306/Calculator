@@ -1,12 +1,18 @@
 export const operationButtons = Object.freeze({
+  percent: "percent",
+  deleteLastOperation: "deleteLastOperation",
+  clean: "clean",
+  backspace: "backspace",
   partOfAWhole: "partOfAWhole",
   square: "square",
-  backspace: "backspace",
-  clean: "clean",
-  uncertainty: "Uncertainty",
   sqrt: "sqrt",
-  countUp: "countUp",
+  divide: "divide",
+  multiple: "multiple",
+  minus: "minus",
+  sum: "sum",
   changeSign: "changeSign",
+  comma: "comma",
+  countUp: "countUp",
 });
 
 export const [buttonsContainer] =
