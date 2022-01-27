@@ -85,12 +85,26 @@ const buttonClick = (event) => {
       result.innerHTML = 0;
       break;
     case operationButtons.minus:
+      if (
+        set.toString().slice(-1) === "+" ||
+        set.toString().slice(-1) === "*" ||
+        set.toString().slice(-1) === "/"
+      ) {
+        set = set.slice(0, -1);
+      }
       set += str + "-";
       input.innerHTML = set;
       str = "";
       result.innerHTML = 0;
       break;
     case operationButtons.sum:
+      if (
+        set.toString().slice(-1) === "-" ||
+        set.toString().slice(-1) === "*" ||
+        set.toString().slice(-1) === "/"
+      ) {
+        set = set.slice(0, -1);
+      }
       set += str + "+";
       input.innerHTML = set;
       str = "";
