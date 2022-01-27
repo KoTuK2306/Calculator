@@ -22,6 +22,17 @@ const buttonClick = (event) => {
       if (str.length === 0) result.innerHTML = 0;
       break;
     case operationButtons.percent:
+      let sign = set.toString().slice(-1);
+      str = eval(
+        eval(set.slice(0, -1)) +
+          sign +
+          eval(Number(eval(set.slice(0, -1))) * (str / 100))
+      );
+      result.innerHTML = str;
+      input.innerHTML = "";
+      str = "";
+      set = "";
+      sign = 0;
       break;
     case operationButtons.deleteLastOperation:
       result.innerHTML = 0;
@@ -30,7 +41,6 @@ const buttonClick = (event) => {
     case operationButtons.partOfAWhole:
       str = 1 / Number(str);
       str = eval(set + str);
-      set = "";
       result.innerHTML = str;
       input.innerHTML = set;
       break;
