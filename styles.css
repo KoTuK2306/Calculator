@@ -12,62 +12,39 @@ body {
   color: var(--secondaryColor);
 }
 
-.title {
-  text-align: center;
-}
-
 .calculator {
   display: grid;
   grid-template-rows: 40px 60px auto;
   background-color: var(--primaryColor);
-  max-width: 370px;
-  height: 500px;
-  margin: auto;
+  border: 1px solid var(--secondaryColor);
+  width: 369px;
+  height: 519px;
+  margin: 100px auto 0 auto;
 }
 
 .buttonsBlock {
+  margin: 0;
+  padding: 0;
+  border-top: 0.5px solid var(--secondaryColor);
+  background-color: var(--secondaryColor);
   display: grid;
+  grid-gap: 1px;
   grid-template-columns: repeat(4, auto);
   grid-template-rows: repeat(6, auto);
-  border-top: 1px solid var(--secondaryColor);
-  border-left: 1px solid var(--secondaryColor);
 }
 
 .button {
-  position: relative;
   margin: 0;
   padding: 0;
+  background-color: var(--buttonColor);
   font-family: "MulishItalic";
   font-size: 20px;
   font-weight: bold;
   color: var(--secondaryColor);
   border: none;
-  border-right: 1px solid var(--secondaryColor);
-  border-bottom: 1px solid var(--secondaryColor);
-  transition-duration: 0.4s;
-  text-decoration: none;
   overflow: hidden;
   cursor: pointer;
-}
-
-.button:after {
-  content: "";
-  background: var(--purple);
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -10px !important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.4s;
-}
-
-.button:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s;
+  transition: all 0.3s;
 }
 
 .operation {
@@ -79,13 +56,19 @@ body {
 }
 
 .button:hover {
-  background-color: var(--purple);
+  background-color: var(--corall);
 }
+
+.button:active {
+  background-color: var(--primaryColor);
+}
+
 .input {
   margin: 0 10px 0 0;
   text-align: end;
   font-size: 15px;
 }
+
 .result {
   margin: 0 10px 0 0;
   text-align: end;

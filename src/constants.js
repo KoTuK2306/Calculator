@@ -18,3 +18,4 @@ export const operationButtons = Object.freeze({
 export const [buttonsContainer] =
   document.getElementsByClassName("buttonsBlock");
 export const [result] = document.getElementsByClassName("result");
+export const [input] = document.getElementsByClassName("input");
