@@ -1,9 +1,10 @@
-import { operationButtons } from "./src/constants.js";
+import {
+  operationButtons,
+  buttonsContainer,
+  result,
+  input,
+} from "./src/constants.js";
 import { sizingText } from "./src/utils/sizingText.js";
-
-const [buttonsContainer] = document.getElementsByClassName("buttonsBlock");
-const [result] = document.getElementsByClassName("result");
-const [input] = document.getElementsByClassName("input");
 
 let str = "";
 let set = "";
