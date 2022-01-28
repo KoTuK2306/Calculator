@@ -59,7 +59,7 @@ const buttonClick = (event) => {
       break;
     case operationButtons.partOfAWhole:
       str = 1 / Number(str);
-      str = eval(set + str);
+      str = Number(eval(set + str).toFixed(6));
       result.innerHTML = str;
       input.innerHTML = set;
       flasher = true;
@@ -74,7 +74,7 @@ const buttonClick = (event) => {
       break;
     case operationButtons.sqrt:
       str = Math.sqrt(Number(str));
-      str = eval(set + str);
+      str = Number(eval(set + str).toFixed(6));
       set = "";
       result.innerHTML = str;
       input.innerHTML = set;
