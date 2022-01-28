@@ -8,6 +8,20 @@ import { sizingText } from "./src/utils/sizingText.js";
 
 let str = "";
 let set = "";
+let flasher = false;
+
+const operationProtect = () => {
+  if (result.innerHTML != 0) {
+    return;
+  } else if (
+    set.toString().slice(-1) === "+" ||
+    set.toString().slice(-1) === "-" ||
+    set.toString().slice(-1) === "/" ||
+    set.toString().slice(-1) === "*"
+  ) {
+    set = set.slice(0, -1);
+  }
+};
 
 const buttonClick = (event) => {
   switch (event.target.id) {
@@ -16,11 +30,13 @@ const buttonClick = (event) => {
       set = "";
       result.innerHTML = 0;
       input.innerHTML = "";
+      flasher = false;
       break;
     case operationButtons.backspace:
       str = str.slice(0, -1);
       result.innerHTML = str;
       if (str.length === 0) result.innerHTML = 0;
+      flasher = false;
       break;
     case operationButtons.percent:
       let sign = set.toString().slice(-1);
@@ -34,16 +50,19 @@ const buttonClick = (event) => {
       str = "";
       set = "";
       sign = 0;
+      flasher = false;
       break;
     case operationButtons.deleteLastOperation:
       result.innerHTML = 0;
       str = "";
+      flasher = false;
       break;
     case operationButtons.partOfAWhole:
       str = 1 / Number(str);
       str = eval(set + str);
       result.innerHTML = str;
       input.innerHTML = set;
+      flasher = false;
       break;
     case operationButtons.square:
       str = Math.pow(Number(str), 2);
@@ -51,6 +70,7 @@ const buttonClick = (event) => {
       set = "";
       result.innerHTML = str;
       input.innerHTML = set;
+      flasher = false;
       break;
     case operationButtons.sqrt:
       str = Math.sqrt(Number(str));
@@ -58,74 +78,57 @@ const buttonClick = (event) => {
       set = "";
       result.innerHTML = str;
       input.innerHTML = set;
+      flasher = false;
       break;
     case operationButtons.divide:
-      if (
-        set.toString().slice(-1) === "+" ||
-        set.toString().slice(-1) === "-" ||
-        set.toString().slice(-1) === "*"
-      ) {
-        set = set.slice(0, -1);
-      }
+      operationProtect();
       set += str + "/";
       input.innerHTML = set;
       str = "";
       result.innerHTML = 0;
+      flasher = false;
       break;
     case operationButtons.multiple:
-      if (
-        set.toString().slice(-1) === "+" ||
-        set.toString().slice(-1) === "-" ||
-        set.toString().slice(-1) === "/"
-      ) {
-        set = set.slice(0, -1);
-      }
+      operationProtect();
       set += str + "*";
       input.innerHTML = set;
       str = "";
       result.innerHTML = 0;
+      flasher = false;
       break;
     case operationButtons.minus:
-      if (
-        set.toString().slice(-1) === "+" ||
-        set.toString().slice(-1) === "*" ||
-        set.toString().slice(-1) === "/"
-      ) {
-        set = set.slice(0, -1);
-      }
+      operationProtect();
       set += str + "-";
       input.innerHTML = set;
       str = "";
       result.innerHTML = 0;
+      flasher = false;
       break;
     case operationButtons.sum:
-      if (
-        set.toString().slice(-1) === "-" ||
-        set.toString().slice(-1) === "*" ||
-        set.toString().slice(-1) === "/"
-      ) {
-        set = set.slice(0, -1);
-      }
+      operationProtect();
       set += str + "+";
       input.innerHTML = set;
       str = "";
       result.innerHTML = 0;
+      flasher = false;
       break;
     case operationButtons.changeSign:
       str = str * -1;
       result.innerHTML = str;
+      flasher = false;
       break;
     case operationButtons.comma:
       str += ".";
       result.innerHTML = str;
+      flasher = false;
       break;
     case operationButtons.countUp:
       str = eval(set + str);
-      console.log(set);
       set = "";
       input.innerHTML = set;
       str = str.toString();
       result.innerHTML = str;
+      flasher = true;
       break;
     default:
       if (event.target === buttonsContainer) {
@@ -134,6 +137,15 @@ const buttonClick = (event) => {
       str += event.target.innerHTML;
       result.innerHTML = str;
       break;
+  }
+  if (flasher === true && event.target.id == "") {
+    str = "";
+    set = "";
+    result.innerHTML = 0;
+    input.innerHTML = "";
+    str += event.target.innerHTML;
+    result.innerHTML = str;
+    flasher = false;
   }
   sizingText(str, result);
 };
