@@ -50,7 +50,7 @@ const buttonClick = (event) => {
       str = "";
       set = "";
       sign = 0;
-      flasher = false;
+      flasher = true;
       break;
     case operationButtons.deleteLastOperation:
       result.innerHTML = 0;
@@ -62,7 +62,7 @@ const buttonClick = (event) => {
       str = eval(set + str);
       result.innerHTML = str;
       input.innerHTML = set;
-      flasher = false;
+      flasher = true;
       break;
     case operationButtons.square:
       str = Math.pow(Number(str), 2);
@@ -70,7 +70,7 @@ const buttonClick = (event) => {
       set = "";
       result.innerHTML = str;
       input.innerHTML = set;
-      flasher = false;
+      flasher = true;
       break;
     case operationButtons.sqrt:
       str = Math.sqrt(Number(str));
@@ -78,7 +78,7 @@ const buttonClick = (event) => {
       set = "";
       result.innerHTML = str;
       input.innerHTML = set;
-      flasher = false;
+      flasher = true;
       break;
     case operationButtons.divide:
       operationProtect();
