@@ -73,5 +73,6 @@ body {
   margin: 0 10px 0 0;
   text-align: end;
   font-size: 35px;
-  transition: all 0.4s;
+  transition: all 0.2s;
+  overflow: hidden;
 }
