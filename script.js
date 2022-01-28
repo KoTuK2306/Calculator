@@ -20,10 +20,19 @@ const operationProtect = () => {
     set.toString().slice(-1) === "*"
   ) {
     set = set.slice(0, -1);
+  } else if (set == "") {
+    set = 0;
+  }
+};
+
+const zeroStart = () => {
+  if (Number(str) === 0) {
+    str = "";
   }
 };
 
 const buttonClick = (event) => {
+  zeroStart();
   switch (event.target.id) {
     case operationButtons.clean:
       str = "";
@@ -126,7 +135,6 @@ const buttonClick = (event) => {
       str = eval(set + str);
       set = "";
       input.innerHTML = set;
-      str = str.toString();
       result.innerHTML = str;
       flasher = true;
       break;
