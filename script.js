@@ -5,6 +5,8 @@ import {
   input,
 } from "./src/constants.js";
 import { sizingText } from "./src/utils/sizingText.js";
+import { ProtectionZero } from "./src/utils/protectionZero.js";
+import { percent } from "./src/utils/percent.js";
 
 let str = "";
 let set = "";
@@ -13,26 +15,16 @@ let flasher = false;
 const operationProtect = () => {
   if (result.innerHTML != 0) {
     return;
-  } else if (
-    set.toString().slice(-1) === "+" ||
-    set.toString().slice(-1) === "-" ||
-    set.toString().slice(-1) === "/" ||
-    set.toString().slice(-1) === "*"
-  ) {
+  } else if (isNaN(Number(set.slice(-1)))) {
     set = set.slice(0, -1);
+    return set;
   } else if (set == "") {
-    set = 0;
-  }
-};
-
-const zeroStart = () => {
-  if (Number(str) === 0) {
-    str = "";
+    set = "0";
+    return set;
   }
 };
 
 const buttonClick = (event) => {
-  zeroStart();
   switch (event.target.id) {
     case operationButtons.clean:
       str = "";
@@ -48,19 +40,11 @@ const buttonClick = (event) => {
       flasher = false;
       break;
     case operationButtons.percent:
-      let sign = set.toString().slice(-1);
-      str = Number(
-        eval(
-          eval(set.slice(0, -1)) +
-            sign +
-            eval(Number(eval(set.slice(0, -1))) * (str / 100))
-        ).toFixed(7)
-      );
+      str = percent(str, set);
       result.innerHTML = str;
       input.innerHTML = "";
       str = "";
       set = "";
-      sign = 0;
       flasher = true;
       break;
     case operationButtons.deleteLastOperation:
@@ -69,23 +53,20 @@ const buttonClick = (event) => {
       flasher = false;
       break;
     case operationButtons.partOfAWhole:
-      str = 1 / Number(str);
-      str = Number(eval(set + str).toFixed(6));
+      str = Number(eval(set + 1 / Number(str)).toFixed(6));
       result.innerHTML = str;
       input.innerHTML = set;
       flasher = true;
       break;
     case operationButtons.square:
-      str = Math.pow(Number(str), 2);
-      str = eval(set + str);
+      str = eval(set + Math.pow(Number(str), 2));
       set = "";
       result.innerHTML = str;
       input.innerHTML = set;
       flasher = true;
       break;
     case operationButtons.sqrt:
-      str = Math.sqrt(Number(str));
-      str = Number(eval(set + str).toFixed(6));
+      str = Number(eval(set + Math.sqrt(Number(str)).toFixed(6)));
       set = "";
       result.innerHTML = str;
       input.innerHTML = set;
@@ -129,11 +110,17 @@ const buttonClick = (event) => {
       flasher = false;
       break;
     case operationButtons.comma:
-      str += ".";
+      if (str.length == 0) {
+        str += "0.";
+      } else if (str.includes(".")) return;
+      else str += ".";
       result.innerHTML = str;
       flasher = false;
       break;
     case operationButtons.countUp:
+      if (isNaN(Number(set.slice(-1))) && result.innerHTML == 0) {
+        set += "0";
+      }
       str = Number(eval(set + str).toFixed(7));
       set = "";
       input.innerHTML = set;
@@ -158,6 +145,7 @@ const buttonClick = (event) => {
     flasher = false;
   }
   sizingText(str, result);
+  str = ProtectionZero(str);
 };
 
 buttonsContainer.addEventListener("click", buttonClick);
