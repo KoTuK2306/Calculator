@@ -49,10 +49,12 @@ const buttonClick = (event) => {
       break;
     case operationButtons.percent:
       let sign = set.toString().slice(-1);
-      str = eval(
-        eval(set.slice(0, -1)) +
-          sign +
-          eval(Number(eval(set.slice(0, -1))) * (str / 100))
+      str = Number(
+        eval(
+          eval(set.slice(0, -1)) +
+            sign +
+            eval(Number(eval(set.slice(0, -1))) * (str / 100))
+        ).toFixed(7)
       );
       result.innerHTML = str;
       input.innerHTML = "";
@@ -132,7 +134,7 @@ const buttonClick = (event) => {
       flasher = false;
       break;
     case operationButtons.countUp:
-      str = eval(set + str);
+      str = Number(eval(set + str).toFixed(7));
       set = "";
       input.innerHTML = set;
       result.innerHTML = str;
