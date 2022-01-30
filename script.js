@@ -149,6 +149,7 @@ const buttonClick = (event) => {
   }
   sizingText(str, result);
   str = ProtectionZero(str);
+  set = signProtection(input, set);
   input.innerHTML = signProtection(input, set);
 };
 
