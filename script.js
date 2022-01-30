@@ -125,6 +125,9 @@ const buttonClick = (event) => {
       if (isNaN(Number(set.slice(-1))) && result.innerHTML == 0) {
         set += "0";
       }
+      if (input.innerHTML.slice(-1) === "-" && str < 0) {
+        str = Math.abs(str);
+      }
       str = Number(eval(set + str).toFixed(7)).toString();
       set = "";
       input.innerHTML = set;
@@ -147,8 +150,8 @@ const buttonClick = (event) => {
     result.innerHTML = str;
     flasher = false;
   }
+  signProtection(input, set);
   sizingText(str, result);
-  set = signProtection(input, set);
 };
 
 buttonsContainer.addEventListener("click", buttonClick);
