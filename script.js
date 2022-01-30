@@ -128,6 +128,7 @@ const buttonClick = (event) => {
       if (input.innerHTML.slice(-1) === "-" && str < 0) {
         str = Math.abs(str);
       }
+      set = signProtection(input, set);
       str = Number(eval(set + str).toFixed(7)).toString();
       set = "";
       input.innerHTML = set;
