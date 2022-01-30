@@ -7,10 +7,16 @@ import {
 import { sizingText } from "./src/utils/sizingText.js";
 import { ProtectionZero } from "./src/utils/protectionZero.js";
 import { percent } from "./src/utils/percent.js";
+import { signProtection } from "./src/utils/signProtection.js";
 
 let str = "";
 let set = "";
 let flasher = false;
+
+const zeroing = () => {
+  str = "";
+  set = "";
+};
 
 const operationProtect = () => {
   if (result.innerHTML != 0) {
@@ -27,8 +33,7 @@ const operationProtect = () => {
 const buttonClick = (event) => {
   switch (event.target.id) {
     case operationButtons.clean:
-      str = "";
-      set = "";
+      zeroing();
       result.innerHTML = 0;
       input.innerHTML = "";
       flasher = false;
@@ -43,8 +48,7 @@ const buttonClick = (event) => {
       str = percent(str, set);
       result.innerHTML = str;
       input.innerHTML = "";
-      str = "";
-      set = "";
+      zeroing();
       flasher = true;
       break;
     case operationButtons.deleteLastOperation:
@@ -121,7 +125,7 @@ const buttonClick = (event) => {
       if (isNaN(Number(set.slice(-1))) && result.innerHTML == 0) {
         set += "0";
       }
-      str = Number(eval(set + str).toFixed(7));
+      str = Number(eval(set + str).toFixed(7)).toString();
       set = "";
       input.innerHTML = set;
       result.innerHTML = str;
@@ -136,8 +140,7 @@ const buttonClick = (event) => {
       break;
   }
   if (flasher === true && event.target.id == "") {
-    str = "";
-    set = "";
+    zeroing();
     result.innerHTML = 0;
     input.innerHTML = "";
     str += event.target.innerHTML;
@@ -146,6 +149,7 @@ const buttonClick = (event) => {
   }
   sizingText(str, result);
   str = ProtectionZero(str);
+  input.innerHTML = signProtection(input, set);
 };
 
 buttonsContainer.addEventListener("click", buttonClick);
