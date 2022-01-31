@@ -48,7 +48,6 @@ const buttonClick = (event) => {
       str = percent(str, set);
       result.innerHTML = str;
       input.innerHTML = "";
-      zeroing();
       flasher = true;
       break;
     case operationButtons.deleteLastOperation:
@@ -153,6 +152,7 @@ const buttonClick = (event) => {
   }
   signProtection(input, set);
   sizingText(str, result);
+  str = ProtectionZero(str);
 };
 
 buttonsContainer.addEventListener("click", buttonClick);
